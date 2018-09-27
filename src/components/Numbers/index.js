@@ -4,6 +4,9 @@ import _ from 'lodash';
 
 const Numbers = (props) => {
   const numberClassName = number => {
+    if(props.usedNumbers.includes(number)){
+      return 'used';
+    }
   	if (props.selectedNumbers.includes(number)) {
     return 'selected';
     }
