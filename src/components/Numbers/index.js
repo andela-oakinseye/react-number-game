@@ -12,7 +12,7 @@ const Numbers = (props) => {
     }
   }
   return (
-    <div className="card text-center">
+    <div className="card text-center numbers">
       <div>
         { 
           Numbers.list.map((number, i) => 

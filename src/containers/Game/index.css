@@ -1,16 +1,18 @@
 .fa-star {
-	margin: 0.5em;
-  font-size: 24px;
+	margin: 1em;
+  font-size: 20px;
+  float: right;
+  color: snow;
 }
 
 span {
-display: inline-block;
-margin: 0.5em;
-text-align: center;
-background-color: #ccc;
-width: 24px;
-border-radius: 50%;
-cursor: pointer;
+  display: inline-block;
+  margin: 0.5em;
+  text-align: center;
+  background-color: #ccc;
+  width: 24px;
+  border-radius: 50%;
+  cursor: pointer;
 }
 
 .selected {
@@ -21,6 +23,68 @@ cursor: pointer;
 
 .used {
 	background-color: #aaddaa;
-  color: #99bb99;
+  color: silver;
   cursor: not-allowed;
+}
+
+.timer {
+  width: 80px !important;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  transition-delay: 1s !important;
+}
+
+.timer h2 {
+  font-size: 1.8em;
+}
+
+.game-title {
+  font-size: 70px;
+  font-weight: 900;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.numbers {
+  width: 70%;
+  padding: 10px;
+  margin: 0 auto;
+  background-color: deepskyblue;
+  box-shadow: 0px 0px 3px 3px lightskyblue;
+}
+
+.numbers span {
+  height: 50px;
+  font-size: 30px;
+  font-weight: bold;
+  border: 1px solid;
+  width: 50px;
+  background-color: inherit;
+}
+
+.star-wrapper {
+  min-width: 350px;
+  max-width: 350px;
+  float: right;
+}
+
+.stars {
+  width: 200px;
+  min-height: 120px;
+}
+
+.chosen span {
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  background-color: inherit;
+  border: 1px solid;
+  border-radius: 50%;
+  color: snow;
+  font-weight: bold;
 }

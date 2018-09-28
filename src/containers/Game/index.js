@@ -6,6 +6,7 @@ import Button from '../../components/Button';
 import DoneFrame from '../../components/DoneFrame';
 import Numbers from '../../components/Numbers';
 import Stars from '../../components/Stars';
+import Timer from '../../components/Timer';
 
 import possibleCombinationSum from '../../util/PossibleCombinationSum';
 
@@ -29,6 +30,7 @@ class Game extends React.Component {
     answerIsCorrect: null,
     redraws: 5,
     doneStatus: null,
+    timeLeft: 30,
   })
 
   static getRandomNumber() {
@@ -105,11 +107,16 @@ class Game extends React.Component {
         answerIsCorrect,
         redraws,
         doneStatus,
+        timeLeft,
        } = this.state;
       return (
         <div className="container">
-          <h3> Play Nine </h3>
+          <h1 className="game-title "> Play The Nine </h1>
           <hr />
+          <div className="row text-center">
+            <Timer timeLeft={timeLeft} />
+          </div>
+          <br />
           <div className="row">
             <Stars numberOfStars={randomNumberOfStars} />
             <Button 
@@ -131,9 +138,9 @@ class Game extends React.Component {
                 reset={this.resetGame}
                 /> :
                 <Numbers 
-              selectedNumbers={selectedNumbers}
-              usedNumbers={usedNumbers}
-              selectNumber={this.selectNumber} />
+                  selectedNumbers={selectedNumbers}
+                  usedNumbers={usedNumbers}
+                  selectNumber={this.selectNumber} />
           }
           
             

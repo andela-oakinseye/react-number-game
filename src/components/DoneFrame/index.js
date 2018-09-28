@@ -6,8 +6,9 @@ const DoneFrame = (props) => {
       <h2>{props.doneStatus}</h2>
       <button 
         className="btn btn-secondary"
-        onClick={props.reset}
-        >Play Again</button>
+        onClick={props.reset}>
+          Play Again
+      </button>
     </div>
   );
 }

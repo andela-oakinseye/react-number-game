@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Answer = (props) => {
   return (
-    <div className="col-5">
+    <div className="col-5 chosen">
     	{ 
       	props.selectedNumbers.map((number, i) => 
           <span 

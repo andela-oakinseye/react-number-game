@@ -7,24 +7,24 @@ const Button = (props) => {
     case true:
       button = 
         <button 
-          className="btn btn-success btn-md"
+          className="btn btn-success btn-lg"
           onClick={props.acceptAnswer}>
             <i className="fa fa-check"></i>
         </button>
       break;
     case false:
       button = 
-        <button className="btn btn-danger btn-md">
+        <button className="btn btn-danger btn-lg">
           <i className="fa fa-times"></i>
         </button>
       break;
     default:
       button = 
         <button 
-          className="btn btn-default btn-md" 
+          className="btn btn-secondary btn-lg" 
           disabled={!props.selectedNumbers.length}
           onClick={props.checkAnswer}>
-        =
+            <i className="fa fa-check"></i>
       </button>
   }
   return (
