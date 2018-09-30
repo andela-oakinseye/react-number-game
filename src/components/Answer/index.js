@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Answer = (props) => {
-  return (
+const Answer = (props) => (
     <div className="col-5 chosen">
     	{ 
       	props.selectedNumbers.map((number, i) => 
@@ -13,8 +12,7 @@ const Answer = (props) => {
           </span>)
       }
     </div>
-  );
-}
+  )
 
 Answer.propTypes = {
   unselectNumber: PropTypes.func.isRequired,

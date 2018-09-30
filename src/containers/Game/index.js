@@ -22,6 +22,8 @@ class Game extends React.Component {
     this.acceptAnswer = this.acceptAnswer.bind(this);
     this.redraw = this.redraw.bind(this);
     this.resetGame = this.resetGame.bind(this);
+    this.startGameTimer = this.startGameTimer.bind(this);
+    this.gameTimer = setInterval(this.startGameTimer, 1000)
   }
   static initialState = () => ({
     randomNumberOfStars: Game.getRandomNumber(),
@@ -30,9 +32,18 @@ class Game extends React.Component {
     answerIsCorrect: null,
     redraws: 5,
     doneStatus: null,
-    timeLeft: 30,
+    timeLeft: 60,
+    started: true,
   })
 
+  startGameTimer() {
+    if (!this.state.started) return
+      if (this.state.timeLeft === 1) {
+        clearInterval(this.gameTimer);
+        this.setState({ doneStatus: "Sorry, time up!" });
+      }
+      this.setState({ timeLeft: this.state.timeLeft - 1 })
+  }
   static getRandomNumber() {
     return 1 + Math.floor(Math.random() * 9);
   }
@@ -87,15 +98,16 @@ class Game extends React.Component {
   updateDoneStatus() {
     this.setState(prevState => {
       if (prevState.usedNumbers.length === 9) {
-        return { doneStatus: 'Done nice!!' };
+        return { doneStatus: 'Done nice!!', started: false };
       }
       if (prevState.redraws === 0 && !this.possibleSolution(prevState)) {
-        return { doneStatus: 'Game Over!' };
+        return { doneStatus: 'Game Over!', started: false };
       }
     });
   }
 
   resetGame() {
+    this.gameTimer = setInterval(this.startGameTimer, 1000)
     return this.setState(Game.initialState());
   }
 
@@ -142,8 +154,7 @@ class Game extends React.Component {
                   usedNumbers={usedNumbers}
                   selectNumber={this.selectNumber} />
           }
-          
-            
+             
         </div>
       );
     }
